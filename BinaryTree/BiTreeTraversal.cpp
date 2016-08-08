@@ -29,7 +29,7 @@ void PostOrder(BiTree T)
 }
 
 // Without Recursion
-LNR
+// LNR
 void InOrder2(BiTree T)
 {
   InitStack(S);
@@ -45,3 +45,30 @@ void InOrder2(BiTree T)
     }
   }
 }
+
+// Level Traversal
+void LevelOrder(BiTree T)
+{
+  InitQueue(Q);
+  BiTree p;
+  EnQueue(Q, T);
+  while(!IsEmpty(Q)) {
+    DeQueue(Q, p);
+    visit(p);
+    if(p->lchild != NULL)
+      EnQueue(Q, p->lchild);
+    if(p->rchild != NULL)
+      EnQueue(Q, p->rchild);
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
